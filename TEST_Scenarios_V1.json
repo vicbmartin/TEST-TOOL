@@ -1,0 +1,1127 @@
+{
+    "version": "1.0",
+    "lastUpdated": "2026-11-05",
+    "updatedBy": "Admin",
+    "sections": [
+        "1. Agent d'accueil : documentation",
+        "2. Agent d'accueil : Que sais-tu faire ?",
+        "3. Agent d'accueil : conversation & documents",
+        "4. Agent d'accueil : signaler & relecture",
+        "5. Passage aux assistants spécialisés",
+        "6. RSE INTM",
+        "7. Appels d'Offres",
+        "8. Génération de DDC",
+        "9. Intercontrat",
+        "10. Agent d'accueil : autres questions"
+    ],
+    "accounts": ["BM", "Direction", "Odyssée", "Administrateur", "Tous", "Sans groupe", "Relecteurs", "Consultants INTM"],
+    "scenarios": [
+        {
+            "id": "1.1",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "comment poser des congés ?",
+            "expected": "Au-dessus de la réponse : Expert - L'administratif au service du business ; VSA cité (https://intm.vsactivity.com) ; le mail à la paie et à l'ADV est confié au manager, pas à la personne ; pas d'avertissement en fin de réponse"
+        },
+        {
+            "id": "1.2",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "combien de jours de congés pour un mariage ?",
+            "expected": "« Je vérifie dans les documents… », puis la réponse commence par dire que la documentation ne le précise pas ; pas de « 5 jours ». Si un chiffre absent des documents sort quand même, la réponse finit par « Je ne retrouve pas « … » dans la documentation consultée … »"
+        },
+        {
+            "id": "1.3",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "quel est le délai de prévenance pour poser des congés payés ?",
+            "expected": "Aucun délai inventé"
+        },
+        {
+            "id": "1.4",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "Un par un : « qui est le DPO d'INTM ? » ; « combien de salariés compte INTM ? » ; « INTM est-elle certifiée ISO 14001 ? » ; « donne-moi le numéro de téléphone de mon manager » ; « quel est le lien de l'outil de transcription ? »",
+            "expected": "Aucun nom, chiffre, numéro ou lien inventé ; jamais la liste des bases. ISO 14001 : non, sauf si un document le dit"
+        },
+        {
+            "id": "1.5",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Odyssée",
+            "prompt": "que désigne le champ BT-115 ?",
+            "expected": "Au-dessus de la réponse : Expert - Expert Technique SEEBURGER"
+        },
+        {
+            "id": "1.6",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Tous",
+            "prompt": "« c'est quoi une facture d'acompte ? » ; « quelle est la meilleure période pour notre séminaire à Paris ? »",
+            "expected": "Une réponse générale, sans menu"
+        },
+        {
+            "id": "1.7",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Tous",
+            "prompt": "À observer sur toutes les réponses",
+            "expected": "Jamais de note sur son fonctionnement, du type « (Je n'ai pas trouvé cette information dans les extraits fournis.) » ou « (Réponse basée sur mes connaissances générales) »"
+        },
+        {
+            "id": "1.8",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "quelles sont nos règles de congés et nos engagements RSE ?",
+            "expected": "Les deux bases au-dessus de la réponse ; les deux sujets traités"
+        },
+        {
+            "id": "1.9",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Administrateur",
+            "prompt": "quelles sont nos règles de congés et le champ BT-115 ?",
+            "expected": "Les deux sujets traités, chacun dans sa base"
+        },
+        {
+            "id": "1.10",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Odyssée",
+            "prompt": "le champ BT-115, et le cas d'une note de restaurant ?",
+            "expected": "La base n'est nommée qu'une fois au-dessus de la réponse"
+        },
+        {
+            "id": "1.11",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Administrateur",
+            "prompt": "« Comment remplir mon CRA en intercontrat ? » ; si un menu s'affiche : « oui », puis « 2 »",
+            "expected": "Le menu : une phrase, les bases numérotées, « Réponds par son numéro ou son nom — ou reformule ta demande. » et des boutons. « oui » : il demande laquelle, sans chercher. « 2 » : il répond à la question de départ dans cette base, sans « Que veux-tu savoir ? »"
+        },
+        {
+            "id": "1.12",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Odyssée",
+            "prompt": "« que désigne le champ BT-115 ? », puis « non, ce n'est pas la bonne base », puis « ce n'est pas le bon sujet ». Une autre fois : « mauvaise base »",
+            "expected": "Les boutons « Ce n'est pas le bon sujet » et « L'information est fausse » ; puis une nouvelle recherche, sans SEEBURGER. « mauvaise base » passe directement aux autres bases"
+        },
+        {
+            "id": "1.13",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Odyssée",
+            "prompt": "« quel est le champ BT-115 ? », puis « et le BT-115 en détail ? »",
+            "expected": "Reste sur SEEBURGER, sans menu"
+        },
+        {
+            "id": "1.14",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Administrateur",
+            "prompt": "« quel est le champ BT-115 ? », puis « comment poser des congés ? », puis « merci »",
+            "expected": "Au-dessus de la réponse : Expert - L'administratif au service du business (depuis Expert - Expert Technique SEEBURGER) ; puis pas de recherche"
+        },
+        {
+            "id": "1.15",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "Odyssée",
+            "prompt": "que dit la base Expert Technique SEEBURGER sur les congés ?",
+            "expected": "Ne cherche que dans cette base ; pas de procédure VSA"
+        },
+        {
+            "id": "1.16",
+            "section": "1. Agent d'accueil : documentation",
+            "account": "BM",
+            "prompt": "« cherche dans DDC Interco » ; « oui stp regarde dans les interco » ; « et dans la RSE ? » ; « cherche plutôt dans les interco »",
+            "expected": "Chaque fois, la recherche dans la base nommée, sans boutons de contestation"
+        },
+        {
+            "id": "2.1",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "que sais-tu faire ?",
+            "expected": "Une phrase, puis Outils et applications et Bases documentaires, numérotés, puis « Donne-moi un numéro ou un nom pour entrer dedans, ou pose directement ta question. » Seules les bases du compte sont affichées, plus Expert - Intercontrat ; BM et Direction ont RSE INTM parmi les applications. Jamais « Corrections et précisions validées »"
+        },
+        {
+            "id": "2.2",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "Un par un : « quels outils as-tu ? » ; « Bonjour, quelles sont les bases documentaires disponibles ? » ; « liste des outils et des bases » ; « à quoi j'ai accès ? » ; « montre-moi tout » ; « tu proposes quoi ? » ; « que tu eux faire ? » ; « tu sers à quoi ? » ; « je suis nouveau, qu'est-ce que je peux faire avec toi ? » ; « Bonjour, que sais-tu faire ? merci »",
+            "expected": "La même liste chaque fois"
+        },
+        {
+            "id": "2.3",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "Après la liste : « 3 »",
+            "expected": "« On est sur … Que veux-tu savoir ? », sans recherche"
+        },
+        {
+            "id": "2.4",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "BM",
+            "prompt": "Un par un : « donne-moi la liste des jours fériés » ; « quel outil pour faire un DDC ? » ; « dis-moi tout ce que je dois faire pour poser un congé » ; « où trouver le catalogue de formations ? » ; « que sais-tu sur les congés ? » ; « pour la paie, quels sont les outils disponibles ? » ; « liste des documents à fournir pour une note de frais » ; « quels outils pour faire un PowerPoint ? » ; « les jours fériés, tu as la liste ? » ; « qui t'a créé ? » ; « tu es une IA ? » ; « est-ce que tu gardes mes conversations ? »",
+            "expected": "Chaque fois une vraie réponse, pas la liste"
+        },
+        {
+            "id": "2.5",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Odyssée",
+            "prompt": "qu'y a-t-il dans la base technique seeburger ?",
+            "expected": "Une recherche dans SEEBURGER, pas la liste"
+        },
+        {
+            "id": "2.6",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "que sait faire transcription audio ?",
+            "expected": "La fiche de l'outil"
+        },
+        {
+            "id": "2.7",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "« je veux générer un powerpoint » ; « comment je fais une présentation powerpoint ? » ; « quel outil pour faire un powerpoint ? »",
+            "expected": "Au-dessus de la réponse : Génération de PowerPoint ; puis une présentation de l'outil et « Ouvrir Génération de PowerPoint »"
+        },
+        {
+            "id": "2.8",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "j'ai un enregistrement de réunion à transcrire",
+            "expected": "Transcription Audio"
+        },
+        {
+            "id": "2.9",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "comment structurer un exposé ?",
+            "expected": "Une réponse, pas la fiche PowerPoint"
+        },
+        {
+            "id": "2.10",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "comment générer un DDC dans PSview ?",
+            "expected": "La réponse vient de PS View (l'étape et le menu Outils), pas de l'assistant DDC"
+        },
+        {
+            "id": "2.11",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "Un par un : « à quoi sert la vue Kanban dans PSview ? » ; « est-ce que PSview peut contacter les candidats par WhatsApp ? » ; « est-ce que PSview gère la paie des consultants ? » ; « on peut écrire les comptes rendus d'entretien dans Taleez depuis PSview ? » ; « combien coûte PSview ? » ; « c'est quoi ps-view, en deux mots ? »",
+            "expected": "WhatsApp : pas encore validé. Paie : il dit que la fiche n'en parle pas. Taleez : non, pas d'API. Prix : aucun prix inventé. Chaque fois, « Ouvrir PS View » une seule fois, à la fin ; jamais « Outils utiles », « Outil utile : » ni « Outils complémentaires »"
+        },
+        {
+            "id": "2.12",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "Juste après une réponse sur PS View : « à quoi sert la vue shortlist ? »",
+            "expected": "Reste sur PS View ; répond à partir de la fiche ou dit qu'elle n'en parle pas"
+        },
+        {
+            "id": "2.13",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "« je voudrais un outil pour faire le café » ; « on a un outil pour générer des images ? » ; « on a un outil pour réserver une salle de réunion ? » ; puis « Je voudrais suggérer cette idée »",
+            "expected": "« Il n'existe pas encore d'outil interne validé pour ça. » avec suggestion@intm.fr ; puis « Je ne peux rien envoyer moi-même : … »"
+        },
+        {
+            "id": "2.14",
+            "section": "2. Agent d'accueil : Que sais-tu faire ?",
+            "account": "Tous",
+            "prompt": "est-ce qu'on a un outil pour les mails ?",
+            "expected": "En plus : « je peux m'en charger moi-même : envoie-le-moi. »"
+        },
+        {
+            "id": "3.1",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un par un : « bonjour » ; « Bonjour, ça va ? » ; « rebonjour » ; « merci beaucoup ! » ; « super, merci pour ton aide » ; « nickel » ; « au revoir » ; « bonne journée » ; « qui es-tu ? » ; « c'est quoi cet agent ? » ; « ok » ; « d'accord »",
+            "expected": "Une réponse courte, sans recherche, sans menu, sans liste"
+        },
+        {
+            "id": "3.2",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "« bonjour, comment poser des congés ? » ; « salut, tu peux me dire où saisir une facture ? » ; « merci de me dire comment déclarer une absence »",
+            "expected": "Une vraie réponse, avec recherche"
+        },
+        {
+            "id": "3.3",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "« Quelle est la capitale de la France ? » ; « tu me fais un plan de visite de Paris sur une semaine ? » ; « j'ai besoin d'aide » ; « je vais regarder dans la doc moi-même »",
+            "expected": "Rien sur INTM ; un plan (une réponse longue est permise) ; une question en retour ; pas de recherche"
+        },
+        {
+            "id": "3.4",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un par un : « reformule cette phrase : le BT-115 est facultatif dans tous les cas » ; « traduis en anglais : la réunion est reportée à demain » ; « corrige l'orthographe de cette phrase : Veuillez trouvez si-joint le compte-rendu » ; « résume en une phrase ce texte : Le Groupe INTM a formulé ses engagements RSE en devenant membre du Pacte mondial en 2008. » ; « écris un mail à l'équipe pour annoncer que la réunion de lundi est décalée à 14h »",
+            "expected": "Fait directement, sans recherche"
+        },
+        {
+            "id": "3.5",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Dans une même discussion : 1) « je veux que tu me réécrives du texte » ; 2) « Les absences non justifiées des consultants doivent être saisies dans VSA avant le 5 du mois » ; 3) « comment poser des congés ? » ; 4) « je veux que tu me réécrves du texte » ; 5) « Est-ce que tu peux m'envoyer les absences des consultants pour le mois de septembre stp ? » ; 6) « plus court »",
+            "expected": "1) il demande le texte, sans proposer d'outil ; 2) il le réécrit sans y répondre ; 3) une recherche dans la documentation ; 4) jamais « Il n'existe pas encore d'outil » ; 5) il réécrit la phrase, du même point de vue, sans y répondre ; 6) il raccourcit ce qu'il vient d'écrire"
+        },
+        {
+            "id": "3.6",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "« écris un mail à l'équipe pour annoncer que la réunion de lundi est décalée à 14h », puis « rends-le plus formel et ajoute la date du 12 octobre », puis « fais-moi maintenant une recette de crêpes »",
+            "expected": "Le mail retouché, sans « pas d'outil » ; puis une nouvelle demande traitée comme telle"
+        },
+        {
+            "id": "3.7",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "reformules cette phrase : Vous trouverez ci-joint et ci-dessous le récap des absences non justifiées à ce jour des consultants en IC",
+            "expected": "La phrase reformulée reste affichée en italique"
+        },
+        {
+            "id": "3.8",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Odyssée",
+            "prompt": "reformule cette phrase en la vérifiant avec la base technique SEEBURGER : le BT-115 est facultatif",
+            "expected": "Une recherche dans SEEBURGER : il vérifie avant de reformuler"
+        },
+        {
+            "id": "3.9",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "« reformule cette phrase selon nos règles : on pose ses congés par mail » ; « résume la politique de télétravail »",
+            "expected": "Une recherche dans la documentation"
+        },
+        {
+            "id": "3.10",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Un PDF avec « résume-moi ce document » ; puis « que dit ce document sur la facturation électronique ? » ; « de quoi parle ce fichier ? »",
+            "expected": "« Lecture de … », puis une réponse sur le fichier, sans recherche"
+        },
+        {
+            "id": "3.11",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Un Word qui contient « Procédure à compléter : comment poser des congés ? Qui valide ? Quel délai ? », avec « remplis ce formulaire avec nos règles »",
+            "expected": "« Je complète avec la documentation interne… », et les règles internes reprises"
+        },
+        {
+            "id": "3.12",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Un Excel qui contient « Question 1 : quelles sont vos règles de congés ? » et « Question 2 : quels sont vos engagements sur la lune ? », avec « réponds à ce questionnaire »",
+            "expected": "Question 1 tirée de la documentation ; pour la 2, il dit franchement n'avoir rien d'interne"
+        },
+        {
+            "id": "3.13",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un fichier déposé sans un mot",
+            "expected": "Deux phrases sur ce que c'est, et les boutons « Résume-le », « Explique-moi les points importants », « Qu'est-ce qu'on a en interne sur ce sujet ? » ; pas de refus"
+        },
+        {
+            "id": "3.14",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Même discussion, même fichier : 1) « traduis-le en anglais » ; 2) « quels sont les délais mentionnés ? » ; 3) « comment poser des congés ? » ; 4) « traduis-le en anglais » ; 5) « que dit le document sur le tri ? »",
+            "expected": "1) et 2) portent sur le document ; 3) une recherche dans une base ; 4) traduit la dernière réponse, plus le document ; 5) revient au document"
+        },
+        {
+            "id": "3.15",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Suite : 6) « est-ce conforme à nos règles internes ? » ; 7) « traduis en anglais : la réunion est reportée à demain » ; 8) « génère un powerpoint à partir de ce document » ; 9) un second fichier avec « résume celui-ci »",
+            "expected": "6) le document et la documentation interne ; 7) ce texte seul ; 8) la fiche PowerPoint ; 9) ce second fichier seul"
+        },
+        {
+            "id": "3.16",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un Excel avec une feuille masquée qui contient un faux mot de passe, avec « que contient ce fichier ? »",
+            "expected": "La feuille masquée n'est pas lue"
+        },
+        {
+            "id": "3.17",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un PDF long dont la réponse est à la fin, avec une question précise",
+            "expected": "La réponse est trouvée"
+        },
+        {
+            "id": "3.18",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un fichier .ods, avec « qu'est-ce que c'est ? »",
+            "expected": "S'il ne peut pas le lire, il le dit, sans caractères étranges"
+        },
+        {
+            "id": "3.19",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "BM",
+            "prompt": "Un PDF de questions RSE, avec « Est-ce que tu peux me donner les réponses pour ces questions RSE ? »",
+            "expected": "Il répond aux questions du PDF"
+        },
+        {
+            "id": "3.20",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Une image seule, avec « c'est quoi ? »",
+            "expected": "Une phrase : il ne lit pas les images et propose d'en copier le texte ; il ne décrit rien"
+        },
+        {
+            "id": "3.21",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Une image et un PDF, avec « regarde »",
+            "expected": "Il parle du PDF et dit que l'image est illisible pour lui"
+        },
+        {
+            "id": "3.22",
+            "section": "3. Agent d'accueil : conversation & documents",
+            "account": "Tous",
+            "prompt": "Un PDF scanné, avec une question",
+            "expected": "Il dit qu'il ne peut pas le lire"
+        },
+        {
+            "id": "4.1",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "« quel est le délai de préavis pour une démission ? » ; puis 1) « c'est faux » ; 2) « oui » ; 3) « depuis 2026 c'est 30 jours » ; 4) Envoyer ; 5) Envoyer sans rien ajouter",
+            "expected": "La première réponse indique la base consultée. 1) une phrase et les boutons Oui, Non merci ; 2) il demande ce qui ne va pas ; 3) une phrase, le texte cité, les boutons Envoyer, Ne pas envoyer ; 4) il demande s'il faut ajouter quelque chose ; 5) « C'est envoyé, merci : … » et « rien n'est modifié automatiquement »"
+        },
+        {
+            "id": "4.2",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « c'est faux, c'est 30 jours » ; Envoyer ; « source : la note RH de janvier 2026 »",
+            "expected": "La remarque est citée tout de suite ; la confirmation finale cite « c'est faux, c'est 30 jours » puis « source : la note RH de janvier 2026 »"
+        },
+        {
+            "id": "4.3",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « c'est faux, c'est 30 jours », puis Ne pas envoyer. Refaire avec « non », puis avec une autre question",
+            "expected": "Rien ne part"
+        },
+        {
+            "id": "4.4",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « tu as oublié les cadres » ; « oui » ; « ils ont 3 mois de préavis »",
+            "expected": "Les deux messages sont cités dans la remarque"
+        },
+        {
+            "id": "4.5",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « non » ; « tu t'es trompé » ; « c'est pas ça il me semble »",
+            "expected": "Les boutons « Ce n'est pas le bon sujet » et « L'information est fausse »"
+        },
+        {
+            "id": "4.6",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « c'est faux », puis « merci »",
+            "expected": "Rien n'est envoyé"
+        },
+        {
+            "id": "4.7",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; puis un par un, chacun suivi de Non merci : « bof » ; « t'es sûr ? » ; « ce n'est plus valable » ; « ta source est ancienne » ; « pas convaincu » ; « la réponse ne me convient pas » ; « en fait c'est 1 mois » ; « je ne suis pas sûr que ce soit à jour » ; « je pense que ce que tu dis est faux »",
+            "expected": "Chaque fois reconnu comme une contestation : le parcours de 4.1 s'ouvre"
+        },
+        {
+            "id": "4.8",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Même question ; « et pour les cadres ? » ; « ok je vois » ; « peux-tu détailler ? » ; « donne-moi un modèle de lettre de démission » ; « non, je voulais parler des congés maladie » ; « non je parlais de la rupture conventionnelle »",
+            "expected": "Une réponse, jamais les boutons Oui, Non merci"
+        },
+        {
+            "id": "4.9",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "!relecture",
+            "expected": "« La relecture est réservée aux relecteurs. »"
+        },
+        {
+            "id": "4.10",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Après un signalement du compte BM, poser une question",
+            "expected": "Sous la réponse : « Une correction attend une relecture — tape !relecture. », une seule fois par discussion"
+        },
+        {
+            "id": "4.11",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "!relecture",
+            "expected": "« Relecture — N correction(s) en attente. », puis les remarques numérotées, avec base, date et adresse e-mail"
+        },
+        {
+            "id": "4.12",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "Le numéro d'une remarque de test",
+            "expected": "« Remarque … sur N — date, par … » ; Ce qui est signalé, une ligne par partie ; la question posée ; la base consultée, sans nom technique ; la réponse donnée ; aucun bloc de code"
+        },
+        {
+            "id": "4.13",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "Le champ BT-115 est-il le montant déjà payé ?",
+            "expected": "« Ce texte est une question… » ; rien n'est écrit"
+        },
+        {
+            "id": "4.14",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "rejeter (pour chaque remarque de test)",
+            "expected": "« Écartée. Rien n'a été écrit. »"
+        },
+        {
+            "id": "4.15",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM / Relecteurs",
+            "prompt": "Compte BM : « comment poser des congés ? », « c'est faux, il manque l'adresse de VSA », Envoyer, Envoyer sans rien ajouter. Puis, en relecteur : « !relecture », ouvrir cette remarque, écrire « L'adresse de VSA est https://intm.vsactivity.com. », puis « publier »",
+            "expected": "L'aperçu « Avant de publier, vérifie. » : ce qui sera dit aux utilisateurs, quand, et sur quelles questions déjà posées ; les gestes publier et rejeter. Puis « Publiée … », parfois avec « À corriger à la source » et le nom du document"
+        },
+        {
+            "id": "4.16",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "BM",
+            "prompt": "Nouvelle discussion : « comment poser des congés ? »",
+            "expected": "La réponse reprend la correction"
+        },
+        {
+            "id": "4.17",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "publiées",
+            "expected": "« N correction(s) en vigueur. », avec qui l'a validée, « appliquée N fois » ou « jamais appliquée ». Le numéro de la correction de test est appelé n ci-dessous"
+        },
+        {
+            "id": "4.18",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "« supprimer n », puis « annuler »",
+            "expected": "« Supprimer la correction n ? » avec oui et annuler ; puis « rien n'a été changé »"
+        },
+        {
+            "id": "4.19",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "« modifier n » ; « L'adresse de VSA est actuellement https://intm.vsactivity.com, accessible depuis le réseau INTM. » ; « publier »",
+            "expected": "« Modifier la correction n » ; l'aperçu contient « Ce texte parle d'une information qui change souvent… », avec annuler et sans rejeter ; puis « Modifiée. »"
+        },
+        {
+            "id": "4.20",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "« supprimer n » ; « je ne sais pas » ; « oui »",
+            "expected": "« Tape oui pour la supprimer, ou annuler pour la garder. » ; puis « Supprimée. »"
+        },
+        {
+            "id": "4.21",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "« supprimer 99 », puis « fin »",
+            "expected": "« Ce numéro ne correspond à aucune correction publiée… » ; puis « Relecture terminée. Que cherches-tu ? »"
+        },
+        {
+            "id": "4.22",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "En pleine relecture : « bonjour c'est quoi la procédure de congés ? »",
+            "expected": "Il quitte la relecture et répond"
+        },
+        {
+            "id": "4.23",
+            "section": "4. Agent d'accueil : signaler & relecture",
+            "account": "Relecteurs",
+            "prompt": "Quand tout est rejeté : « !relecture »",
+            "expected": "« Aucune correction en attente. »"
+        },
+        {
+            "id": "5.1",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "BM / Direction",
+            "prompt": "« je veux générer un DDC » ; dans une autre discussion, « quel outil pour faire un DDC ? »",
+            "expected": "Génération de DDC répond dans la même discussion, avec ses propres boutons"
+        },
+        {
+            "id": "5.2",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "BM / Direction",
+            "prompt": "« j'ai un appel d'offres à analyser », puis « !accueil »",
+            "expected": "Appels d'Offres prend la main ; puis « Retour à l'accueil. Que cherches-tu ? »"
+        },
+        {
+            "id": "5.3",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "Odyssée / Consultants INTM / Sans groupe",
+            "prompt": "je veux générer un DDC",
+            "expected": "La fiche de l'outil, avec son lien vers Agentic ; pas de passage de la main"
+        },
+        {
+            "id": "5.4",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "BM / Direction",
+            "prompt": "« parle-moi de nos engagements RSE », puis une seconde question RSE",
+            "expected": "Sous la première réponse : « Un agent dédié existe aussi : RSE INTM … » avec un lien ; pas sous la seconde"
+        },
+        {
+            "id": "5.5",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "BM / Direction",
+            "prompt": "Dans une même discussion : 1) un CV avec « résume ça » ; 2) « je veux générer un DDC » ; 3) un bouton du DDC ; 4) « comment poser des congés ? » ; 5) un bouton du DDC",
+            "expected": "1) l'agent d'accueil résume ; 2) le DDC prend la main, avec ce CV ; 3) toujours le DDC ; 4) l'agent d'accueil répond, avec une recherche ; 5) le DDC, sans parler des congés"
+        },
+        {
+            "id": "5.6",
+            "section": "5. Passage aux assistants spécialisés",
+            "account": "BM / Direction",
+            "prompt": "Suite : 6) un second fichier avec « et avec ce fichier ? » ; 7) « quelle est la capitale de la France ? » ; 8) « le DDC est prêt ? » ; 9) « écris un mail pour dire que le dossier est prêt » ; 10) « !accueil », puis une question",
+            "expected": "6) le DDC reçoit le fichier ; 7) l'agent d'accueil ; 8) le DDC ; 9) l'agent d'accueil écrit le mail ; 10) « Retour à l'accueil. Que cherches-tu ? », et la suite va à l'agent d'accueil"
+        },
+        {
+            "id": "6.1",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Quels sont nos engagements RSE ?",
+            "expected": "« Recherche dans la documentation RSE… » s'affiche un instant, puis une réponse qui cite ses documents"
+        },
+        {
+            "id": "6.2",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Quelle est notre note Ecovadis ?",
+            "expected": "73/100"
+        },
+        {
+            "id": "6.3",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "« Avez-vous un bilan carbone ? », puis « et en 2024 ? »",
+            "expected": "La seconde réponse porte sur 2024"
+        },
+        {
+            "id": "6.4",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Une question à laquelle la documentation RSE ne répond pas",
+            "expected": "« Je n'ai pas trouvé cette information dans la documentation RSE. », sans chiffre calculé de tête"
+        },
+        {
+            "id": "6.5",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "« merci » ; « Bonjour ! » ; « ok » ; « au revoir » ; « qui es-tu ? » ; puis « bonjour, quel est notre bilan carbone ? »",
+            "expected": "Réponses courtes, sans « Recherche dans la documentation RSE… » ; la dernière lance la recherche"
+        },
+        {
+            "id": "6.6",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "« bonjour » avec un PDF joint",
+            "expected": "Il parle du PDF"
+        },
+        {
+            "id": "6.7",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Sans fichier, un par un : « je veux remplir un questionnaire RSE, tu peux m'aider » ; « Peux-tu compléter mon fichier Excel ? » ; « j'ai une grille fournisseur à compléter » ; « Je dois répondre à un questionnaire RSE d'un client » ; « complète ce questionnaire stp » ; « remplis-moi le formulaire du client » ; « Comment remplir un questionnaire RSE ? » ; « questionnaire » ; « questionnaire RSE ? »",
+            "expected": "Il explique le geste en quelques phrases (le +, Téléverser des fichiers, Confirmer). Pas de recherche, pas de durée, pas les mots « Agent Excel »"
+        },
+        {
+            "id": "6.8",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "« Quelle est notre note au questionnaire Ecovadis ? » ; « Qui doit remplir le questionnaire Ecovadis chez INTM ? » ; « Pour remplir la grille, quelle est notre politique de déplacements ? » ; « Donne-moi la liste complète des documents RSE » ; sur trois lignes (Maj+Entrée) : « Remplis ce questionnaire : » / « 1. Avez-vous une politique RSE ? » / « 2. Un bilan carbone ? »",
+            "expected": "Chaque fois, une vraie réponse RSE, pas l'explication du geste"
+        },
+        {
+            "id": "6.9",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "« Quelle est notre note Ecovadis ? », puis « ok, aide-moi pour le mien »",
+            "expected": "L'explication du geste"
+        },
+        {
+            "id": "6.10",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Joindre un questionnaire Excel de 2 ou 3 questions avec « Réponds par OUI ou NON », puis Confirmer",
+            "expected": "Fenêtre « Remplir ce classeur avec la base RSE ? », avec le nom du fichier et « Tes consignes : Réponds par OUI ou NON ». Puis l'avancement (pourcentage et minutes, ou « En file d'attente »), « Classeur rempli. », « Voici ton questionnaire rempli », le fichier joint et « Relis-le avant de l'envoyer ». Ni durée annoncée, ni « Agent Excel ». Dans le fichier : des OUI ou NON. Dans Agentic : le fichier est aussi dans l'historique d'Agent Excel"
+        },
+        {
+            "id": "6.11",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Ensuite « Merci ! », puis « Remplis-moi un autre questionnaire »",
+            "expected": "Pas de fenêtre ni de second remplissage ; puis l'explication du geste"
+        },
+        {
+            "id": "6.12",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Refaire 6.10 et fermer l'onglet juste après Confirmer ; revenir plus tard",
+            "expected": "Le fichier rempli est dans la discussion"
+        },
+        {
+            "id": "6.13",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Le classeur sans un mot, Annuler, puis « Que contient ce classeur ? »",
+            "expected": "« D'accord, je ne lance pas le remplissage. … » ; puis il parle du classeur, sans nouvelle fenêtre"
+        },
+        {
+            "id": "6.14",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Le classeur avec une question, puis Annuler",
+            "expected": "Une réponse normale, sans annonce d'envoi"
+        },
+        {
+            "id": "6.15",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Un classeur avec une feuille masquée qui contient un faux mot de passe, Annuler, puis « Combien de questions contient ce fichier ? »",
+            "expected": "Rien de la feuille masquée ; aucun nombre inventé"
+        },
+        {
+            "id": "6.16",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Un .xlsm, puis un .xls, un .csv, un Word, un PDF ; puis « Remplis ce questionnaire » avec un Word",
+            "expected": "Le .xlsm (comme .xlsx, .xltx, .xltm) ouvre la fenêtre ; les autres non, ils sont lus comme documents ; avec le Word, il répond sur le contenu"
+        },
+        {
+            "id": "6.17",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Le bouton Stop pendant un remplissage",
+            "expected": "Le remplissage est annulé aussi dans Agentic (historique d'Agent Excel)"
+        },
+        {
+            "id": "6.18",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Un second remplissage depuis une autre discussion, pendant que le premier tourne",
+            "expected": "Refusé : un seul remplissage à la fois"
+        },
+        {
+            "id": "6.19",
+            "section": "6. RSE INTM",
+            "account": "BM / Direction",
+            "prompt": "Régénérer la réponse à un classeur",
+            "expected": "Pas de nouvelle fenêtre"
+        },
+        {
+            "id": "7.1",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "« bonjour », puis « Aide »",
+            "expected": "« Bonjour ! Je t'aide à préparer ta réponse à un appel d'offres… » avec le bouton Aide ; puis « Comment ça marche », qui annonce 300 Mo au maximum"
+        },
+        {
+            "id": "7.2",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Sans document : « Que contient le CCTP ? », puis « Analyser ce DCE »",
+            "expected": "« À partir des documents d'un appel d'offres, je sais faire deux choses… » ; puis « Il me faut d'abord les documents de l'appel d'offres… »"
+        },
+        {
+            "id": "7.3",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Joindre RC.pdf et CCTP.pdf sans rien écrire, puis un troisième document",
+            "expected": "« C'est noté, j'ai 2 document(s) : … Que veux-tu faire ? », boutons Analyser les documents, Extraire les besoins, Aide ; puis « 3 document(s) ». Rien n'est envoyé à Agentic. Titre de la discussion : « Réponse AO · RC.pdf »"
+        },
+        {
+            "id": "7.4",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Nouvelle discussion : le ZIP d'un dossier de consultation, puis une capture d'écran collée",
+            "expected": "Le ZIP compte pour un document ; l'image n'est pas comptée"
+        },
+        {
+            "id": "7.5",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Documents en attente, puis « Que contient le CCTP ? »",
+            "expected": "La liste des documents et les deux choix, sans réponse sur le contenu"
+        },
+        {
+            "id": "7.6",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Analyser les documents, puis Confirmer",
+            "expected": "Fenêtre « Analyser les documents ? » (la liste, « quelques minutes »). Avancement jusqu'à « Terminé. », puis « C'est prêt ! Voici le résumé de tes documents », les liens, « Et maintenant ? », boutons Extraire les besoins et Aide. Dans Agentic : un AO dans la rubrique Réponse AO"
+        },
+        {
+            "id": "7.7",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "merci !",
+            "expected": "« Avec plaisir ! » Rien ne repart"
+        },
+        {
+            "id": "7.8",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Juste après, Extraire les besoins sans redéposer, puis Confirmer",
+            "expected": "« Je repars des documents déjà analysés… Durée : de 10 minutes à 1 heure. » S'il y a plusieurs modèles Excel : « Quel modèle Excel veux-tu utiliser ? » avec un bouton par modèle. À la fin : le fichier Excel des besoins, le résumé, « Relis bien le fichier avant de t'en servir »"
+        },
+        {
+            "id": "7.9",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Pendant un traitement : « Où en est ma demande ? ». Sans rien en cours : « Où en est ma demande ? », puis « Reprendre »",
+            "expected": "« Ta demande « … » est en cours depuis N min… » avec le pourcentage. Sinon : « Tu n'as pas de demande en cours dans cette conversation. » ; « Il n'y a rien à reprendre dans cette conversation. »"
+        },
+        {
+            "id": "7.10",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Fermer l'onglet juste après Confirmer ; revenir plus tard",
+            "expected": "Le résultat est dans la discussion"
+        },
+        {
+            "id": "7.11",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Une seconde demande depuis une autre discussion, pendant que la première tourne",
+            "expected": "« Tu as déjà une demande en cours… » ; les documents restent en attente"
+        },
+        {
+            "id": "7.12",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Stop pendant l'extraction, « Où en est ma tâche ? », puis Reprendre",
+            "expected": "« … Elle est en pause… », boutons Reprendre et Abandonner ; puis l'extraction repart sans fenêtre, et le résultat arrive"
+        },
+        {
+            "id": "7.13",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Même chose, puis Abandonner, puis « bonjour »",
+            "expected": "« D'accord, on en reste là. La demande reste en pause dans Agentic… » ; puis l'accueil"
+        },
+        {
+            "id": "7.14",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Stop pendant l'analyse",
+            "expected": "« Tu as arrêté le suivi de l'analyse « … ». Elle se termine quand même de son côté. »"
+        },
+        {
+            "id": "7.15",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Annuler dans la fenêtre",
+            "expected": "« D'accord, je n'ai rien lancé. Tes documents sont toujours là… »"
+        },
+        {
+            "id": "7.16",
+            "section": "7. Appels d'Offres",
+            "account": "BM / Direction",
+            "prompt": "Plus de 300 Mo de documents en tout",
+            "expected": "« Tes documents font N Mo en tout, c'est trop pour moi (300 Mo au maximum)… », sauf si IRIS refuse le dépôt avant"
+        },
+        {
+            "id": "8.1",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "« bonjour » ; « Aide » ; « Combien de temps ça prend ? » ; « C'est quoi un DDC ? »",
+            "expected": "« Bonjour ! Je prépare le dossier de compétences (DDC)… » ; puis « Comment ça marche » : 20 Mo au maximum, PDF ou Word (.docx)"
+        },
+        {
+            "id": "8.2",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Rien en cours : « oui », puis « Où en est ma demande ? »",
+            "expected": "« Il n'y a rien en cours dans cette conversation. » ; « Tu n'as pas de demande en cours dans cette conversation. »"
+        },
+        {
+            "id": "8.3",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Joindre le CV sans rien écrire",
+            "expected": "« C'est noté, j'ai le CV « … ». Poste visé : aucun pour l'instant… », boutons Générer le DDC, Générer en anonyme, Aide. Rien n'est envoyé. Titre de la discussion : « DDC · … »"
+        },
+        {
+            "id": "8.4",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "« A-t-il travaillé dans la banque ? » ; « Combien d'années d'expérience a-t-il ? » ; « Parle-t-il allemand ? » ; « Résume son parcours en trois lignes » ; « Que penses-tu de ce candidat ? » ; « et maintenant ? »",
+            "expected": "BNP ; 11 ; le CV ne le précise pas ; une réponse courte ; aucun avis personnel ; ne réclame pas de précisions. Aucune fenêtre"
+        },
+        {
+            "id": "8.5",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "« Le poste visé, c'est architecte cloud AWS » ; puis, collée sur trois lignes (Maj+Entrée) : « Architecte cloud AWS » / « Mission de 6 mois chez un grand compte de l'aéronautique. » / « Compétences : Terraform, Kubernetes, aide à la maîtrise d'ouvrage, amélioration continue. »",
+            "expected": "Une phrase de confirmation, sans question ; puis « Poste visé : « Architecte cloud AWS » — noté. »"
+        },
+        {
+            "id": "8.6",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "« Ne lance rien : note juste que le poste est consultant SAP FI », puis « Oublie le poste », puis Générer le DDC",
+            "expected": "Rien n'est lancé ; puis la fenêtre affiche « Poste visé : aucun »"
+        },
+        {
+            "id": "8.7",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Générer le DDC avec un poste, puis Confirmer",
+            "expected": "Fenêtre « Générer le DDC ? » : le CV, le poste, « Environ 2 minutes ». Avancement jusqu'à « Terminé. », puis « C'est prêt ! Voici le dossier de compétences », le lien du Word, « Relis-le avant de l'envoyer », boutons Adapter à un autre poste, Refaire avec une consigne, Aide. Dans Agentic : le dossier est dans Génération de DDC"
+        },
+        {
+            "id": "8.8",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "merci !",
+            "expected": "« Avec plaisir ! » Le Word livré n'est pas pris pour un nouveau CV"
+        },
+        {
+            "id": "8.9",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Générer en anonyme, puis Confirmer",
+            "expected": "Fenêtre « Générer le DDC anonyme ? » avec « Version anonyme : le nom est remplacé par les initiales » ; dans le Word, des initiales à la place du nom"
+        },
+        {
+            "id": "8.10",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "À vérifier sur le titre de la fenêtre : « Le poste visé, c'est architecte cloud » puis « ok génère le ddc » ; « Fais-le en anonyme stp, c'est pour un appel d'offres » ; « Fais son DDC en anonyme » puis « Finalement pas en anonyme, refais-le avec son nom » ; « Fais son DDC en anonyme » puis « Maintenant pour un poste de PMO »",
+            "expected": "Pas anonyme ; anonyme ; pas anonyme ; anonyme"
+        },
+        {
+            "id": "8.11",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "À vérifier dans la fenêtre : « Fais son DDC » ; « Fais le DDC pour un poste de chef de projet SAP » ; « J'ai une mission de PMO chez un client bancaire : prépare son dossier en mettant en avant ses certifications » ; « Prépare le DDC pour une mission de data engineer, version anonyme, et mets en avant Power BI » ; « Fais-moi le DDC avec le Template DDC COMPACT »",
+            "expected": "Pas anonyme ; poste chef de projet SAP ; poste PMO et consigne sur les certifications ; anonyme, poste et consigne Power BI ; ligne « Modèle : « Template DDC COMPACT » »"
+        },
+        {
+            "id": "8.12",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "« raccourcis les expériences dans le ddc stp » ; « Traduis-le en anglais » ; « Supprime la mission chez Airbus » ; « Fais un dossier plus court » ; puis « Je voudrais un dossier qui tient sur une seule page »",
+            "expected": "« Je ne peux pas modifier le contenu du dossier… », sans fenêtre ; pour la page unique, il renvoie vers Word"
+        },
+        {
+            "id": "8.13",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Après un dossier : Adapter à un autre poste, « Directeur de programme », Générer le DDC. Puis, dans une discussion neuve, taper « Adapter à un autre poste »",
+            "expected": "« Pour quel poste ? » ; le même CV, sans le redéposer, pour ce poste. Dans la discussion neuve : « Il n'y a pas encore de dossier à adapter… »"
+        },
+        {
+            "id": "8.14",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Refaire avec une consigne, « insiste sur les missions SAP » ; une autre fois, Annuler à la place de la consigne",
+            "expected": "« Quelle consigne ? » ; la fenêtre affiche « Consigne : « insiste sur les missions SAP » », anonyme si le dossier précédent l'était ; le dossier d'après n'a plus de consigne. Avec Annuler : « D'accord, je n'ai rien lancé. »"
+        },
+        {
+            "id": "8.15",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Trois CV à la fois",
+            "expected": "« … Puis 2 autre(s) : … Je les traite un par un. » ; après le premier, « CV suivant : … » pour le même poste"
+        },
+        {
+            "id": "8.16",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Pendant une préparation : « Où en est ma demande ? » ; une question sur le CV ; « Refais-le en anonyme »",
+            "expected": "« Le dossier de « … » est en préparation depuis… » ; une réponse avec le bouton Où en est ma demande ? ; rien n'est lancé"
+        },
+        {
+            "id": "8.17",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Stop, « Où en est ma demande ? », puis Reprendre ; une autre fois, Abandonner",
+            "expected": "« Tu as arrêté l'affichage. Le dossier… continue sa préparation… » ; le dossier arrive sans fenêtre ; avec Abandonner : « … tu le retrouveras dans Agentic, rubrique Génération de DDC. »"
+        },
+        {
+            "id": "8.18",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Un dossier depuis une autre discussion pendant une préparation",
+            "expected": "« Un autre dossier est déjà en préparation pour toi… un seul à la fois. »"
+        },
+        {
+            "id": "8.19",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Annuler dans la fenêtre",
+            "expected": "« D'accord, je n'ai rien lancé. Le CV est toujours là… »"
+        },
+        {
+            "id": "8.20",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Un .txt et un .doc (ancien Word) déposés avec le CV",
+            "expected": "« Je laisse de côté « … » : je ne lis que les CV en PDF ou en Word (.docx). … », une seule fois"
+        },
+        {
+            "id": "8.21",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Un fichier de plus de 20 Mo",
+            "expected": "« Le fichier « … » fait N Mo : c'est trop pour un CV (20 Mo au maximum). … »"
+        },
+        {
+            "id": "8.22",
+            "section": "8. Génération de DDC",
+            "account": "BM / Direction",
+            "prompt": "Un CV en PDF scanné, puis une question sur le CV",
+            "expected": "Il ne peut pas répondre sur le contenu ; la génération reste proposée"
+        },
+        {
+            "id": "9.1",
+            "section": "9. Intercontrat",
+            "account": "Sans groupe",
+            "prompt": "Ouvrir la liste des modèles",
+            "expected": "Pas d'« Intercontrat »"
+        },
+        {
+            "id": "9.2",
+            "section": "9. Intercontrat",
+            "account": "BM / Direction / Odyssée / Consultants INTM / Relecteurs",
+            "prompt": "Assistant Intercontrat : « Comment remplir mon CRA en intercontrat ? »",
+            "expected": "Une réponse tirée des livrets intercontrat ; ne dit pas que le CRA part « automatiquement » ; aucun message d'erreur"
+        },
+        {
+            "id": "9.3",
+            "section": "9. Intercontrat",
+            "account": "BM / Direction / Odyssée / Consultants INTM / Relecteurs",
+            "prompt": "Assistant Intercontrat : « Quels sont les horaires en intercontrat ? »",
+            "expected": "Une réponse tirée des livrets intercontrat"
+        },
+        {
+            "id": "9.4",
+            "section": "9. Intercontrat",
+            "account": "Tous",
+            "prompt": "Agent d'accueil : « Que sais-tu faire ? »",
+            "expected": "« Expert - Intercontrat » parmi les bases documentaires"
+        },
+        {
+            "id": "9.5",
+            "section": "9. Intercontrat",
+            "account": "Tous",
+            "prompt": "Agent d'accueil : « Quels sont les horaires en intercontrat ? »",
+            "expected": "La réponse directement ; pas de carte « Ouvrir l'agent »"
+        },
+        {
+            "id": "9.6",
+            "section": "9. Intercontrat",
+            "account": "Sans groupe / BM / Direction",
+            "prompt": "Agent d'accueil : « Comment remplir mon CRA en intercontrat ? »",
+            "expected": "La réponse directement"
+        },
+        {
+            "id": "10.1",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "BM / Direction",
+            "prompt": "Comment poser un congé ?",
+            "expected": "Suit le guide administratif ; ne dit pas que les congés sont validés automatiquement ; aucune démarche par mail que le guide ne donne pas"
+        },
+        {
+            "id": "10.2",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "quel est l'objectif de réduction des émissions de gaz à effet de serre d'INTM ?",
+            "expected": "La réponse directement : −42 %, sans menu"
+        },
+        {
+            "id": "10.3",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "Je dois recruter un chef de projet SAP",
+            "expected": "Parle de PS View"
+        },
+        {
+            "id": "10.4",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Odyssée",
+            "prompt": "Que dit le PLF sur la facturation électronique ?",
+            "expected": "Cite le PLF comme source"
+        },
+        {
+            "id": "10.5",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "BM / Direction",
+            "prompt": "Quels consultants ont une expérience SAP ?",
+            "expected": "Une réponse courte"
+        },
+        {
+            "id": "10.6",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "Quelle est la note EcoVadis d'INTM ?",
+            "expected": "Une réponse courte et exacte (73/100)"
+        },
+        {
+            "id": "10.7",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Administrateur",
+            "prompt": "Comment remplir mon CRA en intercontrat ?",
+            "expected": "La réponse directement, tirée du livret intercontrat, sans menu ; ne dit pas que le CRA part « automatiquement »"
+        },
+        {
+            "id": "10.8",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "liste les consultants SAP disponibles",
+            "expected": "Pas la liste des bases et des outils"
+        },
+        {
+            "id": "10.9",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "quels outils pour gérer mes candidats ?",
+            "expected": "Une réponse sur l'outil qui sert à cela, pas la liste complète"
+        },
+        {
+            "id": "10.10",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "je découvre IRIS, tu fais quoi exactement ?",
+            "expected": "La liste des bases et des outils"
+        },
+        {
+            "id": "10.11",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Odyssée",
+            "prompt": "Quel est le calendrier de la facturation électronique ?",
+            "expected": "Le calendrier en vigueur"
+        },
+        {
+            "id": "10.12",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Odyssée",
+            "prompt": "que désigne le champ BT-115 ?",
+            "expected": "La définition du document, ou « la documentation ne le précise pas » ; rien d'inventé"
+        },
+        {
+            "id": "10.13",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "BM / Direction",
+            "prompt": "Quels consultants sont disponibles en ce moment ?",
+            "expected": "N'invente aucune disponibilité"
+        },
+        {
+            "id": "10.14",
+            "section": "10. Agent d'accueil : autres questions",
+            "account": "Tous",
+            "prompt": "À observer sur toutes les réponses",
+            "expected": "Les outils suggérés en fin de réponse ont un rapport avec la question"
+        }
+    ]
+}     
+			
